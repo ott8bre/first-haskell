@@ -40,5 +40,5 @@ script:
 - stack --no-terminal test --coverage --haddock --no-haddock-deps
 
 after_script:
-  - cabal install codecov-haskell
-  - codecov-haskell
+- stack install codecov-haskell
+- codecov-haskell --display-report --print-response
