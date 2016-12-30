@@ -41,4 +41,4 @@ script:
 
 after_script:
 - stack install codecov-haskell
-- codecov-haskell --display-report --print-response
+- codecov-haskell first-haskell-test --display-report --print-response
