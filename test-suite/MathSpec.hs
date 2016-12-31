@@ -1,6 +1,6 @@
-module LibSpec (main, spec) where
+module MathSpec (main, spec) where
 
-import Lib
+import Math
 
 import Test.Hspec
 import Test.QuickCheck

@@ -2,7 +2,7 @@ module Main where
 
 import System.Environment
 
-import Lib
+import Math
 
 main :: IO ()
 main = do 

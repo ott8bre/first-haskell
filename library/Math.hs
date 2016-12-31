@@ -4,7 +4,7 @@ This is my first module in Haskell
 
 -}
 
-module Lib
+module Math
     ( example
     , square
     , cube

@@ -39,6 +39,6 @@ script:
 # Build the package, its tests, and its docs and run the tests
 - stack --no-terminal test --coverage --haddock --no-haddock-deps
 
-after_script:
-- stack install codecov-haskell
-- codecov-haskell first-haskell-test --display-report --print-response
+#after_script:
+#- stack install codecov-haskell
+#- codecov-haskell first-haskell-test --display-report --print-response
