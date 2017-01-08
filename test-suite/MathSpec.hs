@@ -12,7 +12,7 @@ main :: IO ()
 main = hspec spec
 
 spec :: Spec
-spec = do
+spec = parallel $ do
   describe "square" $ do
     context "when used with ints" $ do
       it "is not negative" $ property $
