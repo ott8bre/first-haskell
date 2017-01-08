@@ -41,11 +41,9 @@ script:
 
 after_script:
 - stack install codecov-haskell
-- ls -la $( stack path --local-hpc-root )
-- tree $( stack path --local-hpc-root )
+- ls -la $( stack path --local-hpc-root )/first
 - mkdir -p dist/hpc
-- cp -r $( stack path --local-hpc-root ) .
+- cp -r $( stack path --local-hpc-root )/first ./hpc
 - mv hpc dist/hpc/tix
-- mv dist/hpc/tix/first dist/hpc/tix/first-test-suite
 - ls -la dist/hpc/tix/first-test-suite
 - codecov-haskell first-test-suite --display-report --print-response
