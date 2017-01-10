@@ -15,19 +15,20 @@ module Math
 
 -}
 example :: (Num a, Show a) => a -> [String]
-example x = 
-    let 
-        funs = 
-            [ ("identity", id x)
-            , ("  square", square x)
-            , ("    cube", cube x)
-            ]
+example x =
+    let
+        funs =
+          [ (" identity", id x)
+          , ("   square", square x)
+          , ("     cube", cube x)
+--          , ("fibonacci", fibonacci $ round x)
+          ]
         f x (l, y) = concat
             [ l
             , " of "
             , show x
             , " is "
-            , show y    
+            , show y
             ]
     in
         map (f x) funs

@@ -5,10 +5,13 @@ import System.Environment
 import Math
 
 main :: IO ()
-main = do 
+main = do
   args <- getArgs
-  let 
-    x = case args of
-      [] -> 0.0
-      _  -> read $ args !! 0
-  putStrLn $ unlines $ example $ x
+  x <- parse args
+  putStrLn $ unlines $ example x
+
+parse :: Num a => [String] -> a
+parse args =
+  case args of
+    [] -> 0
+    _  -> read $ head args
