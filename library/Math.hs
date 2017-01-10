@@ -8,6 +8,7 @@ module Math
     ( example
     , square
     , cube
+    , fibonacci
     ) where
 
 {- | Shows Examples
@@ -48,3 +49,10 @@ square x = x*x
 -}
 cube :: Num a => a -> a
 cube x = x*x*x
+
+{- | Fibonacci sequence
+
+-}
+fibonacci :: Int -> Int
+fibonacci n = fibs !! n
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)

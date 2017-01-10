@@ -37,14 +37,13 @@ install:
 
 script:
 # Build the package, its tests, and its docs and run the tests
-- stack --no-terminal test --haddock --no-haddock-deps
-- cabal configure --enable-tests --enable-library-coverage && cabal build && cabal test # needed by codecov-haskell
+- stack --no-terminal test --coverage --haddock --no-haddock-deps
 
 after_script:
 - stack install codecov-haskell
-#- ls -la $( stack path --local-hpc-root )/first
-#- mkdir -p dist/hpc
-#- cp -r $( stack path --local-hpc-root )/first ./hpc
-#- mv hpc dist/hpc/tix
-#- ls -la dist/hpc/tix/first-test-suite
+- ls -la $( stack path --local-hpc-root )/first
+- mkdir -p dist/hpc
+- cp -r $( stack path --local-hpc-root )/first ./hpc
+- mv hpc dist/hpc/tix
+- ls -la dist/hpc/tix/first-test-suite
 - codecov-haskell first-test-suite --display-report --print-response
