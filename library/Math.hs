@@ -5,33 +5,38 @@ This is my first module in Haskell
 -}
 
 module Math
-    ( example
+    ( exampleI, exampleF
     , square
     , cube
     , fibonacci
     ) where
 
+nums :: Num a => [(String, a -> a)]
+nums =
+  [ (" identity", id)
+  , ("   square", square)
+  , ("     cube", cube)
+--          , ("fibonacci", fibonacci $ round x)
+  ]
+
+integrals :: Integral a => [(String, a -> a)]
+integrals =
+  [ ("fibonacci", fibonacci)
+  ]
+
+
+display :: Show a => a -> (String, a -> a) -> String
+display x (l, f) = concat [ l, " of ", show x, " is ", show $ f x]
+
 {- | Shows Examples
 
 -}
-example :: (Num a, Show a) => a -> [String]
-example x =
-    let
-        funs =
-          [ (" identity", id x)
-          , ("   square", square x)
-          , ("     cube", cube x)
---          , ("fibonacci", fibonacci $ round x)
-          ]
-        f x (l, y) = concat
-            [ l
-            , " of "
-            , show x
-            , " is "
-            , show y
-            ]
-    in
-        map (f x) funs
+exampleF :: (Fractional a, Show a) => a -> [String]
+exampleF x = map (display x) nums
+
+exampleI :: (Integral a, Show a) => a -> [String]
+exampleI x = map (display x) $ nums ++ integrals
+
 
 {- | Squares a number
 
@@ -54,6 +59,6 @@ cube x = x*x*x
 {- | Fibonacci sequence
 
 -}
-fibonacci :: Int -> Int
-fibonacci n = fibs !! n
+fibonacci :: Integral a => a -> a
+fibonacci n = fromInteger $ fibs !! ( fromIntegral n :: Int)
 fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
