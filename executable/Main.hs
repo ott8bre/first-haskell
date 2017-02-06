@@ -13,7 +13,7 @@ exec ::  [String] -> [String]
 exec args =
   case args of
     [] ->
-      exampleI 0
+      exampleI (0 :: Int)
     (x:_)  ->
       --let r = readMaybe x in
       case readMaybe x :: Maybe Int of

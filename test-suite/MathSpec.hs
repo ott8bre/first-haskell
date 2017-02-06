@@ -16,7 +16,7 @@ main = hspec spec
 
 spec :: Spec
 spec = parallel $ do
-  
+
   describe "square" $ do
     context "when used with ints" $ do
       it "is even" $ property $
@@ -29,8 +29,8 @@ spec = parallel $ do
 
   describe "fibonacci" $ do
     it "is efficient" $ do
-      timeout 10000 (evaluate $ fibonacci 32) `shouldReturn` Just 2178309
+      timeout 10000 (evaluate $ fibonacci (32 :: Int)) `shouldReturn` Just (2178309 :: Int)
     it "throws ErrorCall on negative argument" $ do
-      (evaluate $ fibonacci (-5)) `shouldThrow` anyErrorCall
+      (evaluate $ fibonacci (-5 :: Int)) `shouldThrow` anyErrorCall
     it "sequence starts with 1,1,2,3,5" $ do
-      [fibonacci x | x <- [1..5]] `shouldBe` [1,1,2,3,5]
+      [fibonacci x | x <- ([1..5]::[Int])] `shouldBe` ([1,1,2,3,5]::[Int])

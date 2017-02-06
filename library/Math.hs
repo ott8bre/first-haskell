@@ -61,4 +61,4 @@ cube x = x*x*x
 -}
 fibonacci :: Integral a => a -> a
 fibonacci n = fromInteger $ fibs !! ( fromIntegral n :: Int)
-fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+  where fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
