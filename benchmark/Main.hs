@@ -2,5 +2,7 @@
 -- website for help: <http://www.serpentine.com/criterion/>.
 import Criterion.Main
 
+import Math (square, cube)
+
 main :: IO ()
-main = defaultMain [bench "const" (whnf const ())]
+main = defaultMain [bench "square" (whnf square (2 :: Int)), bench "cube" (whnf cube (2 :: Int))]

@@ -16,6 +16,7 @@ main = hspec spec
 
 spec :: Spec
 spec = parallel $ do
+  
   describe "square" $ do
     context "when used with ints" $ do
       it "is even" $ property $
