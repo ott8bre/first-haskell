@@ -1,11 +1,9 @@
-{- | Module header documentation
-
-This is my first module in Haskell
-
--}
-
+-- | Example of a library file. It is also used for testing the test suites.
 module Math
-    ( exampleI, exampleF
+    (
+      -- * Exported functions
+      exampleI
+    , exampleF
     , square
     , cube
     , fibonacci
@@ -38,19 +36,25 @@ exampleI :: (Integral a, Show a) => a -> [String]
 exampleI x = map (display x) $ nums ++ integrals
 
 
-{- | Squares a number
-
->>> square -1
-1
-
--}
-square :: Num a => a -> a
+-- | Squares a 'Num' value.
+--
+--  Examples:
+--
+--  >>> square (5 :: Int)
+--  25
+--
+--  Properties:
+--
+--  prop> square (-x) == (square x)
+--
+square :: Num a => a -- ^ value to increment
+                -> a -- ^ result
 square x = x*x
 
 {- | Cubes a number
 
->>> cube -1
--1
+>>> cube (2 :: Int)
+8
 
 -}
 cube :: Num a => a -> a

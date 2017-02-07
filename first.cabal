@@ -25,7 +25,7 @@ library
   ghc-options:         -Wall -Werror -O2
   hs-source-dirs:      library
   exposed-modules:     Math
-  build-depends:       base
+  build-depends:       base >= 4.8 && < 5
 
 
 executable first
@@ -33,7 +33,7 @@ executable first
   ghc-options:         -Wall -Werror -O2 -threaded -rtsopts -with-rtsopts=-N
   hs-source-dirs:      executable
   main-is:             Main.hs
-  build-depends:       base
+  build-depends:       base >= 4.8 && < 5
                      , first
 
 
@@ -43,10 +43,12 @@ test-suite first-test-suite
   ghc-options:         -Wall -Werror -O2 -threaded -rtsopts -with-rtsopts=-N
   hs-source-dirs:      test-suite
   main-is:             Main.hs
-  build-depends:       base
+  build-depends:       base >= 4.8 && < 5
+                     , tasty >= 0.11
+                     , tasty-hunit >= 0.9
+                     , tasty-hspec >= 1.1
+                     , tasty-smallcheck >= 0.8
                      , first
-                     , hspec
-                     , QuickCheck
 
 test-suite first-doctest
   type:              exitcode-stdio-1.0
@@ -66,6 +68,6 @@ benchmark first-benchmarks
   ghc-options:       -Wall -Werror -O2 -threaded -rtsopts -with-rtsopts=-N
   main-is:           Main.hs
   hs-source-dirs:    benchmark
-  build-depends:     base
+  build-depends:     base >= 4.8 && < 5
+                   , criterion >= 1.1
                    , first
-                   , criterion
